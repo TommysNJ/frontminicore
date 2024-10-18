@@ -15,11 +15,6 @@ const EditTarea = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        getDatos();
-        getTareaById();
-    }, [getTareaById, getDatos]); // Agregar getTareaById y getDatos como dependencias
-
     const getDatos = async () => {
         const empleadosRes = await axios.get('https://backend-mini-core.onrender.com/api/empleados/');
         const proyectosRes = await axios.get('https://backend-mini-core.onrender.com/api/proyectos/');
@@ -34,6 +29,11 @@ const EditTarea = () => {
         setEmpleadoId(res.data.Id_Empleado);
         setProyectoId(res.data.Id_Proyecto);
     };
+
+    useEffect(() => {
+        getDatos();
+        getTareaById();
+    }, [getTareaById, getDatos]); // Agregar getTareaById y getDatos como dependencias
 
     const update = async (e) => {
         e.preventDefault();

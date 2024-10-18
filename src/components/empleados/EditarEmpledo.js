@@ -11,15 +11,16 @@ const EditEmpleado = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
-    useEffect(() => {
-        getEmpleadoById();
-    }, [getEmpleadoById]); // Agregar getEmpleadoById como dependencia
 
     const getEmpleadoById = async () => {
         const res = await axios.get(`${URI}${id}`);
         setNombre(res.data.nombre);
         setApellido(res.data.apellido);
     };
+
+    useEffect(() => {
+        getEmpleadoById();
+    }, [getEmpleadoById]); // Agregar getEmpleadoById como dependencia
 
     const update = async (e) => {
         e.preventDefault();

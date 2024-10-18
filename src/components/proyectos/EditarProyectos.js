@@ -10,14 +10,15 @@ const EditProyecto = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
-    useEffect(() => {
-        getProyectoById();
-    }, [getProyectoById]); // Agregar getProyectoById como dependencia
 
     const getProyectoById = async () => {
         const res = await axios.get(`${URI}${id}`);
         setNombre(res.data.nombre);
     };
+
+    useEffect(() => {
+        getProyectoById();
+    }, [getProyectoById]); // Agregar getProyectoById como dependencia
 
     const update = async (e) => {
         e.preventDefault();
