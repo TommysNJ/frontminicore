@@ -12,7 +12,7 @@ const EditProyecto = () => {
 
     useEffect(() => {
         getProyectoById();
-    }, [id]);  // Agregar 'id' como dependencia
+    }, [getProyectoById]); // Agregar getProyectoById como dependencia
 
     const getProyectoById = async () => {
         const res = await axios.get(`${URI}${id}`);

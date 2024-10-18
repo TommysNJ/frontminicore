@@ -13,7 +13,7 @@ const EditEmpleado = () => {
 
     useEffect(() => {
         getEmpleadoById();
-    }, [id]);  // Agregar 'id' como dependencia
+    }, [getEmpleadoById]); // Agregar getEmpleadoById como dependencia
 
     const getEmpleadoById = async () => {
         const res = await axios.get(`${URI}${id}`);

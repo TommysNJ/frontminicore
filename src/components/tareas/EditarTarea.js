@@ -18,7 +18,7 @@ const EditTarea = () => {
     useEffect(() => {
         getDatos();
         getTareaById();
-    }, [id]);  // Agregar 'id' como dependencia
+    }, [getTareaById, getDatos]); // Agregar getTareaById y getDatos como dependencias
 
     const getDatos = async () => {
         const empleadosRes = await axios.get('https://backend-mini-core.onrender.com/api/empleados/');
